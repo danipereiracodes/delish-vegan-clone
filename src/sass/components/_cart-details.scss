@@ -1,0 +1,28 @@
+@import '../abstracts/mixins';
+
+.cart-details {
+    background-color:#000000;
+    color:white;
+    height:100%;
+    width:25vw;
+    position:fixed;
+    top:0;
+    right:-500px;
+    display:none;
+
+    &--open {
+        background-color:#000;
+        color:white;
+    height:100%;
+    width:25vw;
+    position:fixed;
+    top:0;
+    right:0;
+    display:flex;
+   
+
+    
+    }
+
+   
+}

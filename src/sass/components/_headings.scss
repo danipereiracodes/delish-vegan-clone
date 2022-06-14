@@ -1,0 +1,27 @@
+
+.heading-primary {
+    font-size:3.5rem;
+    color:black;
+    font-weight:600;
+    padding:3rem 0 0 3rem;
+    text-align:center;
+}
+
+
+.heading-secondary {
+    font-size:1.5rem;
+    color:black;
+    font-weight:400;
+    padding:1.5rem 0 0 3rem;
+    text-align:center;
+    
+    text-transform: uppercase;
+
+    span {
+        font-size:1.5rem;
+    color:black;
+    font-weight:600;
+    text-transform: uppercase;
+    text-decoration: underline;
+    }
+}

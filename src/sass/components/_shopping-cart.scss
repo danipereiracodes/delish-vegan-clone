@@ -1,0 +1,105 @@
+.shopping_cart {
+	background-color: #ffffff;
+background-image: linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%);
+	position: fixed;
+	top: 0;
+	right: -325px;
+	
+	height: 100vh;
+	width: 25vw;
+
+    &--open {
+    position: fixed;
+	top: 0;
+	right: 0px;
+    height: 100vh;
+	width: 25vw;
+    background-color: #ffffff;
+    background-image: linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%);
+    }
+
+	&_units--wrapper {
+        width:50px;
+        height:50px;
+        
+	}
+
+	&_units {
+		background-color: black;
+		color: white;
+        padding:1rem;
+		width: 25px;
+		height: 25px;
+        border-radius: 25px;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        position:relative;
+        right: 72px;
+    top: 50px;
+    z-index: 3;
+        
+	} 
+
+    & p {
+        font-size:1.5rem;
+    }
+
+    &_details h4{
+        
+        font-size:2rem;
+        color:black;
+        text-align:center;
+        font-weight:600;
+    }
+}
+
+.basket_icon {
+    font-size:3rem;
+}
+
+.shopping_cart_shoppingbag {
+	font-size:30px;
+	&--wrapper {
+
+    background-color: #ffbada;
+    color:black;
+	padding: 1rem;
+	border-radius: 35px;
+    height:55px;
+    width:55px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+        right:65px;
+        top:35px;
+        
+        &:hover {
+            cursor:pointer;
+        }
+
+	}
+
+}
+
+
+//animations
+#slide {
+    position: fixed;
+	top: 0;
+	right: -325px;
+    
+    
+    -webkit-animation: slide .5s forwards;
+   
+    
+}
+
+@-webkit-keyframes slide {
+    0% { display: none; }
+}
+
+@keyframes slide {
+    100% { right: 0px; }
+}
