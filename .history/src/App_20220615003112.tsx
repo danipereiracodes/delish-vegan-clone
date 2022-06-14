@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import Header from './components/Header';
 import Main from './components/Main';
 import Footer from './components/Footer';
-import { UnitContext } from './context/unitsContext';
+import { AppContext } from './context/unitsContext';
 
 function App() {
-	const [units, setUnits] = useState<number>(0);
+	const [units, setUnits] = useState();
 	return (
 		<>
-			<UnitContext.Provider
+			<AppContext.Provider
 				value={{
 					units: units,
 					setUnits: setUnits,
@@ -17,7 +17,7 @@ function App() {
 				<Header />
 				<Main />
 				<Footer />
-			</UnitContext.Provider>
+			</AppContext.Provider>
 		</>
 	);
 }

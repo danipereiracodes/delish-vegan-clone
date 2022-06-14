@@ -33,10 +33,7 @@ const ProductCard: React.FC<AllProps> = props => {
 	const handleClick = (index: number) => {
 		props.products[index].added = true;
 
-		console.log(units);
-
 		setTimeout(() => {
-			setUnits((units: number) => units + 1);
 			props.products[index].added = false;
 			props.setIsCartOpen(() => {
 				props.setIsCartOpen(() => !props.isCartOpen);
@@ -52,6 +49,10 @@ const ProductCard: React.FC<AllProps> = props => {
 			props.setIsCartOpen(() => false);
 		}, 7000);
 	};
+
+	useEffect(() => {
+		setUnits(0);
+	}, []);
 
 	return (
 		<>

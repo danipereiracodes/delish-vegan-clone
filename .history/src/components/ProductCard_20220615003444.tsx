@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import '../sass/layout/_grid.scss';
 import '../sass/components/_product-card.scss';
 import '../sass/components/_buttons.scss';
@@ -31,12 +31,10 @@ const ProductCard: React.FC<AllProps> = props => {
 	const { units, setUnits } = useContext(UnitContext);
 
 	const handleClick = (index: number) => {
+		console.log('Here is the context', units, setUnits);
 		props.products[index].added = true;
 
-		console.log(units);
-
 		setTimeout(() => {
-			setUnits((units: number) => units + 1);
 			props.products[index].added = false;
 			props.setIsCartOpen(() => {
 				props.setIsCartOpen(() => !props.isCartOpen);

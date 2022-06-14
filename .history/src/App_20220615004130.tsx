@@ -5,12 +5,12 @@ import Footer from './components/Footer';
 import { UnitContext } from './context/unitsContext';
 
 function App() {
-	const [units, setUnits] = useState<number>(0);
+	const [units, setUnits] = useState();
 	return (
 		<>
 			<UnitContext.Provider
 				value={{
-					units: units,
+					units: 0,
 					setUnits: setUnits,
 				}}
 			>

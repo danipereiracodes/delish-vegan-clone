@@ -8,6 +8,15 @@ import useLogicTest from '../hooks/useLogic';
 const Main: React.FunctionComponent = () => {
 	const [item, setItem] = useState([]);
 	const [isCartOpen, setIsCartOpen] = useState(false);
+	const [logic, setLogic] = useLogicTest();
+
+	useEffect(() => {
+		if (typeof setLogic === 'function' && typeof logic === 'number') {
+			setInterval(() => {
+				setLogic(logic + 1);
+			}, 1000);
+		}
+	}, []);
 
 	const fetchProducts = async () => {
 		try {

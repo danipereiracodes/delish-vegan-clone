@@ -32,11 +32,9 @@ const ProductCard: React.FC<AllProps> = props => {
 
 	const handleClick = (index: number) => {
 		props.products[index].added = true;
-
-		console.log(units);
+		setUnits(5);
 
 		setTimeout(() => {
-			setUnits((units: number) => units + 1);
 			props.products[index].added = false;
 			props.setIsCartOpen(() => {
 				props.setIsCartOpen(() => !props.isCartOpen);

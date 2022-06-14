@@ -1,8 +1,7 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import '../sass/layout/_grid.scss';
 import '../sass/components/_product-card.scss';
 import '../sass/components/_buttons.scss';
-import { UnitContext } from '../context/unitsContext';
 
 import { AiOutlineCheck } from 'react-icons/ai';
 
@@ -28,15 +27,11 @@ type AllProps = CartProps & ProductProps;
 
 const ProductCard: React.FC<AllProps> = props => {
 	const [isLoading, setIsLoading] = useState(false);
-	const { units, setUnits } = useContext(UnitContext);
 
 	const handleClick = (index: number) => {
 		props.products[index].added = true;
 
-		console.log(units);
-
 		setTimeout(() => {
-			setUnits((units: number) => units + 1);
 			props.products[index].added = false;
 			props.setIsCartOpen(() => {
 				props.setIsCartOpen(() => !props.isCartOpen);
