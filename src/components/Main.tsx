@@ -1,13 +1,34 @@
 import '../sass/layout/_grid.scss';
 import '../sass/components/_headings.scss';
 import ProductList from './ProductList';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import ShoppingCart from './ShoppingCart';
-import useLogicTest from '../hooks/useLogic';
+import { UnitContext } from '../context/unitsContext';
+import { Products } from '../@types/unit-type';
 
 const Main: React.FunctionComponent = () => {
+	const { units, setUnits } = useContext(UnitContext);
 	const [item, setItem] = useState([]);
 	const [isCartOpen, setIsCartOpen] = useState(false);
+	const [cartItems, setCartItems] = useState([] as Products[]);
+
+	const handleAddToCart = (addedItem: any) => {
+		setCartItems(prev => {
+			//is item already in the cart?
+			if (prev) {
+				const isItem = prev.find(item => item.id === addedItem.id);
+
+				if (isItem) {
+					return prev.map(item =>
+						item.id === addedItem.id ? { ...item, units: item.units + 1 } : item
+					);
+				}
+			}
+
+			return [...prev, { ...addedItem, amount: 1 }];
+		});
+		console.log(cartItems);
+	};
 
 	const fetchProducts = async () => {
 		try {
@@ -25,17 +46,25 @@ const Main: React.FunctionComponent = () => {
 	}, []);
 
 	return (
-		<section className='main-wrapper'>
+		<section id='menu' className='main-wrapper'>
 			<h1 className='heading-primary'>Nuevos sabores cada mes!</h1>
 			<h2 className='heading-secondary'>
 				<span>PINCHA AQUÍ</span> PARA LEER MÁS INFORMACIÓN SOBRE ENVÍOS Y
 				RECOGIDAS EN TIENDA.
 			</h2>
-			<ShoppingCart setIsCartOpen={setIsCartOpen} isCartOpen={isCartOpen} />
+			<ShoppingCart
+				cartItems={cartItems}
+				setIsCartOpen={setIsCartOpen}
+				isCartOpen={isCartOpen}
+			/>
 			<ProductList
 				products={item}
 				setIsCartOpen={setIsCartOpen}
 				isCartOpen={isCartOpen}
+				handleAddToCart={handleAddToCart}
+				units={units}
+				setUnits={setUnits}
+				cartItems={cartItems}
 			/>
 		</section>
 	);

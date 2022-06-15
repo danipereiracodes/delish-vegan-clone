@@ -1,23 +1,6 @@
 import '../sass/layout/_grid.scss';
 import ProductCard from './ProductCard';
-
-export interface ProductProps {
-	products: {
-		id: number;
-		name: string;
-		price: number;
-		desc: string;
-		img: string;
-		units: number;
-		buttonText: string;
-		added: boolean;
-	}[];
-}
-
-interface CartProps {
-	isCartOpen: boolean;
-	setIsCartOpen: Function;
-}
+import { ProductProps, CartProps } from '../@types/unit-type';
 
 type AllProps = CartProps & ProductProps;
 
@@ -29,6 +12,10 @@ const ProductList: React.FC<AllProps> = props => {
 					products={props.products}
 					setIsCartOpen={props.setIsCartOpen}
 					isCartOpen={props.isCartOpen}
+					handleAddToCart={props.handleAddToCart}
+					units={props.units}
+					setUnits={props.setUnits}
+					cartItems={props.cartItems}
 				/>
 			}
 		</article>

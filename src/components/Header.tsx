@@ -9,10 +9,10 @@ const Header = () => {
 					alt='delish Vegan Doughnuts'
 				/>
 				<div className='header__links'>
-					<a href='#' className='header__links_item'>
+					<a href='#menu' className='header__links_item'>
 						Pick up
 					</a>
-					<a href='#' className='header__links_item'>
+					<a href='#menu' className='header__links_item'>
 						Delivery
 					</a>
 				</div>
