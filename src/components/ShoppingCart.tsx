@@ -1,4 +1,3 @@
-import { FaShoppingBag } from 'react-icons/fa';
 import React, { useContext } from 'react';
 import '../sass/components/_shopping-cart.scss';
 import { UnitContext } from '../context/unitsContext';
@@ -17,7 +16,7 @@ const ShoppingCart: React.FC<CartDetailsProps> = props => {
 					<p>{units}</p>
 				</div>
 				<div className='shopping_cart_shoppingbag--wrapper'>
-					<FaShoppingBag className='basket_icon' />
+					{/* <FaShoppingBag className='basket_icon' /> */}
 				</div>
 			</div>
 			<aside className='shopping_cart_details'>
