@@ -6,6 +6,20 @@ import ShoppingCart from './ShoppingCart';
 import { UnitContext } from '../context/unitsContext';
 import { Products } from '../@types/unit-type';
 
+function SvgComponent(props: any) {
+	return (
+		<svg
+			style={{
+				flex: 1,
+			}}
+			xmlns='http://www.w3.org/2000/svg'
+			{...props}
+		>
+			<path stroke='red' fill='#00f' d='M10 10H110V110H10z' />
+		</svg>
+	);
+}
+
 const Main: React.FunctionComponent = () => {
 	const { units, setUnits } = useContext(UnitContext);
 	const [item, setItem] = useState([]);
@@ -66,6 +80,7 @@ const Main: React.FunctionComponent = () => {
 				setUnits={setUnits}
 				cartItems={cartItems}
 			/>
+			<SvgComponent />
 		</section>
 	);
 };

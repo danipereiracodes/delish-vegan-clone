@@ -3,6 +3,7 @@ import '../sass/components/_shopping-cart.scss';
 import { UnitContext } from '../context/unitsContext';
 import { CartDetailsProps } from '../@types/unit-type';
 import CartItem from '../components/CartItem';
+import { BsBasket2Fill } from 'react-icons/bs';
 
 const ShoppingCart: React.FC<CartDetailsProps> = props => {
 	const { units } = useContext(UnitContext);
@@ -16,7 +17,7 @@ const ShoppingCart: React.FC<CartDetailsProps> = props => {
 					<p>{units}</p>
 				</div>
 				<div className='shopping_cart_shoppingbag--wrapper'>
-					{/* <FaShoppingBag className='basket_icon' /> */}
+					<BsBasket2Fill className='basket_icon' />
 				</div>
 			</div>
 			<aside className='shopping_cart_details'>
